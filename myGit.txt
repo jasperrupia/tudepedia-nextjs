@@ -8,11 +8,14 @@ git config -h
 git help config
 
 git log
+git log --oneline
+
+echo "# tude-pedia" >> README.md
 
 git init
 
 git add fileName.ext 
-git add --all | git add . | git add -add
+git add --all | git add . | git add -A
 
 git restore --staged fileName.ext
 
@@ -20,6 +23,7 @@ git rm --cached fileName.ext
 
 git commit -m "first commit"
 git commit -a -m "first commit"
+git commit -m "first commit" --amend
 
 git restore --staged fileName.ext
 
@@ -30,3 +34,10 @@ git restore "fileName.ext"
 git mv "fileName.ext" "fileName2.ext"
 
 git log
+git log -p
+
+
+git branch -M main
+git remote add origin https://github.com/jasperrupia/tude-pedia.git
+git push -u origin main
+
