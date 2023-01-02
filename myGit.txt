@@ -1,0 +1,18 @@
+git config --global user.name "Jasper Rupia"
+
+git config --global user.email jasperrupia@gmail.com
+
+git config --global init.default branch main
+
+git config -h
+git help config
+
+git init
+
+git add fileName.ext 
+git add --all | git add . | git add -add
+
+git rm --catched fileName.ext
+
+
+
