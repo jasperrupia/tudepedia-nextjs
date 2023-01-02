@@ -7,12 +7,26 @@ git config --global init.default branch main
 git config -h
 git help config
 
+git log
+
 git init
 
 git add fileName.ext 
 git add --all | git add . | git add -add
 
-git rm --catched fileName.ext
+git restore --staged fileName.ext
 
+git rm --cached fileName.ext
 
+git commit -m "first commit"
+git commit -a -m "first commit"
 
+git restore --staged fileName.ext
+
+git rm "fileName.ext"
+
+git restore "fileName.ext"
+
+git mv "fileName.ext" "fileName2.ext"
+
+git log
