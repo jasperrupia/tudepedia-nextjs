@@ -1,4 +1,5 @@
-import React from 'react'
+
+import Link from 'next/link'
 
 const aboutPage = () => {
   return (
@@ -20,9 +21,9 @@ const aboutPage = () => {
                 <div>
                   At cumque tenetur iste molestiae, vel eum reiciendis assumenda! Numquam, repudiandae. Consequuntur obcaecati recusandae aliquam, amet doloribus eius dolores officiis cumque? Quibusdam praesentium pariatur sapiente mollitia, amet hic iusto voluptas! Iusto quo earum vitae excepturi, ipsam aliquid deleniti assumenda culpa deserunt.
                 </div>
-                <a href="">
+                <Link href="">
                   Read More
-                </a>
+                </Link>
               </div>
             </div>
           </div>

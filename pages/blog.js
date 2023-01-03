@@ -1,4 +1,5 @@
-import React from 'react'
+
+import Link from 'next/link'
 
 const blogPage = () => {
   return (
@@ -27,9 +28,9 @@ const blogPage = () => {
                   <div>
                     Incidunt magni explicabo ullam ipsa quo consequuntur eveniet illo? Aspernatur nam dolorem a neque? Esse eaque dolores hic debitis cupiditate, ad beatae voluptatem numquam dignissimos ab porro
                   </div>
-                  <a href="">
+                  <Link href="">
                     Read More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -50,9 +51,9 @@ const blogPage = () => {
                   <div>
                     Officiis veritatis id illo eligendi repellat facilis animi adipisci praesentium. Tempore ab provident porro illo ex obcaecati deleniti enim sequi voluptas at. Harum veniam eos nisi distinctio! Porro, reiciendis eius.
                   </div>
-                  <a href="">
+                  <Link href="">
                     Read More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

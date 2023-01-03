@@ -1,19 +1,45 @@
+import Head from 'next/head'
 import Script from 'next/script'
+import Link from 'next/link'
 import '../styles/globals.css'
+import { useRef } from 'react'
+
 
 
 export default function App({ Component, pageProps }) {
+
+  const newsletterInputRef = useRef();
+
+  function submitHandler(event) {
+    event.preventDefault();
+    const enteredNewsletter = newsletterInputRef.current.value;
+
+    const newsletterData = {
+      newsletter: enteredNewsletter,
+    };
+    
+    function onAddNewsletter(enteredNewsletterData) {
+      console.log(enteredNewsletterData)
+    }
+    
+    onAddNewsletter(newsletterData);
+  };
+
   return (
       <>
+        <Head>
+          <title>TudePedia</title>
+        </Head>
+  
         <div className="hero_area">
           <header className="header_section">
             <div className="container-fluid">
               <nav className="navbar navbar-expand-lg custom_nav-container ">
-                <a className="navbar-brand" href="/">
+                <Link className="navbar-brand" href="/">
                   <span>
                     TudePedia
                   </span>
-                </a>
+                </Link>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className=""> </span>
@@ -22,19 +48,19 @@ export default function App({ Component, pageProps }) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <a className="nav-link pl-lg-0" href="/">Home </a>
+                      <Link className="nav-link pl-lg-0" href="/">Home </Link>
                     </li>
                     <li className="nav-item active">
-                      <a className="nav-link" href="about"> About <span className="sr-only">(current)</span> </a>
+                      <Link className="nav-link" href="about"> About <span className="sr-only">(current)</span> </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="categories">Categories</a>
+                      <Link className="nav-link" href="categories">Categories</Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="blog"> Blog </a>
+                      <Link className="nav-link" href="blog"> Blog </Link>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link" href="contact">Contact Us</a>
+                      <Link className="nav-link" href="contact">Contact Us</Link>
                     </li>
                   </ul>
                   <form className="search_form">
@@ -63,18 +89,18 @@ export default function App({ Component, pageProps }) {
                     Vitae aut explicabo fugit facere alias distinctio, exem commodi mollitia minusem dignissimos atque asperiores incidunt vel voluptate iste
                   </div>
                   <div className="info_social">
-                    <a href="">
+                    <Link href="">
                       <i className="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="">
                       <i className="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="">
                       <i className="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="">
                       <i className="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -84,24 +110,24 @@ export default function App({ Component, pageProps }) {
                     Address
                   </h4>
                   <div className="contact_link_box">
-                    <a href="">
+                    <Link href="">
                       <i className="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
                         Location
                       </span>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="">
                       <i className="fa fa-phone" aria-hidden="true"></i>
                       <span>
-                        Call +01 1234567890
+                        Call +255 656631106
                       </span>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link href="">
                       <i className="fa fa-envelope" aria-hidden="true"></i>
                       <span>
                         demo@gmail.com
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -110,8 +136,8 @@ export default function App({ Component, pageProps }) {
                   <h4>
                     Newsletter
                   </h4>
-                  <form action="#">
-                    <input type="text" placeholder="Enter email" />
+                  <form onSubmit={submitHandler}>
+                    <input type="text" placeholder="Enter email" ref={newsletterInputRef} required />
                     <button type="submit">
                       Subscribe
                     </button>
@@ -133,7 +159,7 @@ export default function App({ Component, pageProps }) {
           <div className="container">
             <div>
               &copy; <span id="displayYear"></span> All Rights Reserved By
-              <a href="https://html.design/">Free Html Templates</a>
+              <Link href="https://html.design/">Free Html Templates</Link>
             </div>
           </div>
         </footer>

@@ -1,10 +1,31 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
+
+const DUMMY_COMENTS = [
+  {
+    name: 'Jasper Rupia',
+    status: 'Student',
+    image: 'sample/images/c1.jpg',
+    discription: 'Editors now use Lorem Ipsum as their default model text, and a search for "lorem ipsum" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by'
+  },
+  {
+    name: 'Oscar Mtundu',
+    status: 'Developer',
+    image: 'sample/images/c2.jpg',
+    discription: 'Editors now use Lorem Ipsum as their default model text, and a search for "lorem ipsum" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by'
+  },
+  {
+    name: 'Director Didi',
+    status: 'Designer',
+    image: 'sample/images/c3.jpg',
+    discription: 'Editors now use Lorem Ipsum as their default model text, and a search for "lorem ipsum" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by'
+  }
+]
 
 export default function Home() {
   return (
     <>
-    
       <section className="slider_section ">
         <div id="customCarousel1" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner">
@@ -23,9 +44,9 @@ export default function Home() {
                       <div>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
                       </div>
-                      <a href="">
+                      <Link href="">
                         Read More
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -51,9 +72,9 @@ export default function Home() {
                       <div>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
                       </div>
-                      <a href="">
+                      <Link href="">
                         Read More
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -79,9 +100,9 @@ export default function Home() {
                       <div>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
                       </div>
-                      <a href="">
+                      <Link href="">
                         Read More
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -94,14 +115,14 @@ export default function Home() {
             </div>
           </div>
           <div className="carousel_btn_box">
-            <a className="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+            <Link className="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
               <i className="fa fa-angle-left" aria-hidden="true"></i>
               <span className="sr-only">Previous</span>
-            </a>
-            <a className="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+            </Link>
+            <Link className="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
               <i className="fa fa-angle-right" aria-hidden="true"></i>
               <span className="sr-only">Next</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -245,9 +266,9 @@ export default function Home() {
                 <div>
                   At cumque tenetur iste molestiae, vel eum reiciendis assumenda! Numquam, repudiandae. Consequuntur obcaecati recusandae aliquam, amet doloribus eius dolores officiis cumque? Quibusdam praesentium pariatur sapiente mollitia, amet hic iusto voluptas! Iusto quo earum vitae excepturi, ipsam aliquid deleniti assumenda culpa deserunt.
                 </div>
-                <a href="">
+                <Link href="">
                   Read More
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -265,81 +286,33 @@ export default function Home() {
             <hr />
           </div>
           <div className="row">
-            <div className="col-md-6 mx-auto">
-              <div className="client_container ">
-                <div className="detail-box">
-                  <div>
-                    Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+            {DUMMY_COMENTS.map((comment) => (
+              <div className="col-md-6 mx-auto">
+                <div className="client_container ">
+                  <div className="detail-box">
+                    <div>
+                      {comment.discription}
+                    </div>
+                    <span>
+                      <i className="fa fa-quote-left" aria-hidden="true"></i>
+                    </span>
                   </div>
-                  <span>
-                    <i className="fa fa-quote-left" aria-hidden="true"></i>
-                  </span>
-                </div>
-                <div className="client_id">
-                  <div className="img-box">
-                    <img src="sample/images/c1.jpg" alt="" />
-                  </div>
-                  <div className="client_name">
-                    <h5>
-                      Jone Mark
-                    </h5>
-                    <h6>
-                      Student
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 mx-auto">
-              <div className="client_container ">
-                <div className="detail-box">
-                  <div>
-                    Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-                  </div>
-                  <span>
-                    <i className="fa fa-quote-left" aria-hidden="true"></i>
-                  </span>
-                </div>
-                <div className="client_id">
-                  <div className="img-box">
-                    <img src="sample/images/c2.jpg" alt="" />
-                  </div>
-                  <div className="client_name">
-                    <h5>
-                      Anna Crowe
-                    </h5>
-                    <h6>
-                      Student
-                    </h6>
+                  <div className="client_id">
+                    <div className="img-box">
+                      <img src={comment.image} alt="" />
+                    </div>
+                    <div className="client_name">
+                      <h5>
+                        {comment.name}
+                      </h5>
+                      <h6>
+                        {comment.status}
+                      </h6>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6 mx-auto">
-              <div className="client_container ">
-                <div className="detail-box">
-                  <div>
-                    Editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-                  </div>
-                  <span>
-                    <i className="fa fa-quote-left" aria-hidden="true"></i>
-                  </span>
-                </div>
-                <div className="client_id">
-                  <div className="img-box">
-                    <img src="sample/images/c3.jpg" alt="" />
-                  </div>
-                  <div className="client_name">
-                    <h5>
-                      Hilley James
-                    </h5>
-                    <h6>
-                      Student
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -370,9 +343,9 @@ export default function Home() {
                   <div>
                     Incidunt magni explicabo ullam ipsa quo consequuntur eveniet illo? Aspernatur nam dolorem a neque? Esse eaque dolores hic debitis cupiditate, ad beatae voluptatem numquam dignissimos ab porro
                   </div>
-                  <a href="">
+                  <Link href="">
                     Read More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -393,9 +366,9 @@ export default function Home() {
                   <div>
                     Officiis veritatis id illo eligendi repellat facilis animi adipisci praesentium. Tempore ab provident porro illo ex obcaecati deleniti enim sequi voluptas at. Harum veniam eos nisi distinctio! Porro, reiciendis eius.
                   </div>
-                  <a href="">
+                  <Link href="">
                     Read More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
