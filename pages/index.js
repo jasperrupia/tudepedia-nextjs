@@ -1,21 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
+import { MongoClient } from "mongodb";
 
 const DUMMY_COMENTS = [
   {
+    id: 'c1',
     name: 'Jasper Rupia',
     status: 'Student',
     image: 'sample/images/c1.jpg',
     discription: 'Editors now use Lorem Ipsum as their default model text, and a search for "lorem ipsum" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by'
   },
   {
+    id: 'c2',
     name: 'Oscar Mtundu',
     status: 'Developer',
     image: 'sample/images/c2.jpg',
     discription: 'Editors now use Lorem Ipsum as their default model text, and a search for "lorem ipsum" will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by'
   },
   {
+    id: 'c3',
     name: 'Director Didi',
     status: 'Designer',
     image: 'sample/images/c3.jpg',
@@ -23,7 +26,7 @@ const DUMMY_COMENTS = [
   }
 ]
 
-export default function Home() {
+export default function Home(props) {
   return (
     <>
       <section className="slider_section ">
@@ -35,7 +38,7 @@ export default function Home() {
                   <div className="col-md-6">
                     <div className="detail-box">
                       <h5>
-                        Tude Bookstore
+                        Tude Bookstore 
                       </h5>
                       <h1>
                         For All Your <br />
@@ -287,7 +290,7 @@ export default function Home() {
           </div>
           <div className="row">
             {DUMMY_COMENTS.map((comment) => (
-              <div className="col-md-6 mx-auto">
+              <div key={comment.id.toString()} className="col-md-6 mx-auto">
                 <div className="client_container ">
                   <div className="detail-box">
                     <div>
@@ -384,7 +387,7 @@ export default function Home() {
             <div className="col-md-6 ">
               <div className="heading_container ">
                 <h2 className="">
-                  Contact Us
+                  Contact Us 
                 </h2>
               </div>
               <form action="#">
@@ -419,3 +422,26 @@ export default function Home() {
     </>
   )
 }
+
+export async function getStaticProps() {
+  const client = await MongoClient.connect(
+    'mongodb+srv://jasper:qKPJp533UgbNQgKW@tude-pedia.qwc3589.mongodb.net/tudepediadb?retryWrites=true&w=majority'
+  );
+  const db = client.db();
+  const newsletterCollection = db.collection('newsletterCollection');
+  const result = await newsletterCollection.find().toArray();
+  client.close();
+
+  return {
+    props: {
+      newslaterEmails: result.map(newsletterEmail => ({
+        id: newsletterEmail._id.toString(),
+        email: newsletterEmail.newsletter
+      }))
+    },
+    revalidate: 1
+  };
+}
+
+
+// {props.newslaterEmails.map((emailItem) => (<>{emailItem.email}</>))}

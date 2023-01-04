@@ -3,12 +3,13 @@ import Script from 'next/script'
 import Link from 'next/link'
 import '../styles/globals.css'
 import { useRef } from 'react'
-
+import { useRouter } from 'next/router'
 
 
 export default function App({ Component, pageProps }) {
 
   const newsletterInputRef = useRef();
+  const router = useRouter();
 
   function submitHandler(event) {
     event.preventDefault();
@@ -18,8 +19,16 @@ export default function App({ Component, pageProps }) {
       newsletter: enteredNewsletter,
     };
     
-    function onAddNewsletter(enteredNewsletterData) {
-      console.log(enteredNewsletterData)
+    async function onAddNewsletter(enteredNewsletterData) {
+      const response = await fetch('http://localhost:3000/api/newsletter', {
+        method: 'POST',
+        body: JSON.stringify(enteredNewsletterData),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const data = await response.json();
+      router.push('/')
     }
     
     onAddNewsletter(newsletterData);
@@ -137,7 +146,7 @@ export default function App({ Component, pageProps }) {
                     Newsletter
                   </h4>
                   <form onSubmit={submitHandler}>
-                    <input type="text" placeholder="Enter email" ref={newsletterInputRef} required />
+                    <input type="email" placeholder="Enter email" ref={newsletterInputRef} required />
                     <button type="submit">
                       Subscribe
                     </button>
@@ -158,8 +167,7 @@ export default function App({ Component, pageProps }) {
         <footer className="footer_section">
           <div className="container">
             <div>
-              &copy; <span id="displayYear"></span> All Rights Reserved By
-              <Link href="https://html.design/">Free Html Templates</Link>
+              &copy; <span id="displayYear"></span> All Rights Reserved
             </div>
           </div>
         </footer>
