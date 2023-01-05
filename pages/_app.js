@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
   return (
       <>
         <Head>
-          <title>TudePedia</title>
+          <title>TudePedia 01</title>
         </Head>
   
         <div className="hero_area">

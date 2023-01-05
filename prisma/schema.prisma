@@ -1,0 +1,13 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://jasper:qKPJp533UgbNQgKW@tude-pedia.qwc3589.mongodb.net/tudepediadb?retryWrites=true&w=majority"
+}
+
+model newsletterCollection {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  newsletter String
+}
