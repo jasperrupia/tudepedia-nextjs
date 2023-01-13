@@ -3,11 +3,11 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = "mongodb+srv://jasper:qKPJp533UgbNQgKW@tude-pedia.qwc3589.mongodb.net/tudepediadb?retryWrites=true&w=majority"
+  provider = "sqlite"
+  url      = "file:./tudepedia.db"
 }
 
-model newsletterCollection {
-  id         String @id @default(auto()) @map("_id") @db.ObjectId
+model Subscriber {
+  id         String @id @default(cuid())
   newsletter String
 }

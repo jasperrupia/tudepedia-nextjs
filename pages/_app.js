@@ -3,36 +3,25 @@ import Script from 'next/script'
 import Link from 'next/link'
 import '../styles/globals.css'
 import { useRef } from 'react'
-import { useRouter } from 'next/router'
+import { onAddNewsletter } from '../lib/APIs'
+import { useRouter } from "next/router";
 
 
 export default function App({ Component, pageProps }) {
-
-  const newsletterInputRef = useRef();
+  
+  // form submition
   const router = useRouter();
-
+  const newsletterInputRef = useRef();
   function submitHandler(event) {
     event.preventDefault();
     const enteredNewsletter = newsletterInputRef.current.value;
-
     const newsletterData = {
       newsletter: enteredNewsletter,
     };
-    
-    async function onAddNewsletter(enteredNewsletterData) {
-      const response = await fetch('http://localhost:3000/api/newsletter', {
-        method: 'POST',
-        body: JSON.stringify(enteredNewsletterData),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      const data = await response.json();
-      router.push('/')
-    }
-    
     onAddNewsletter(newsletterData);
+    router.push('/')
   };
+
 
   return (
       <>
@@ -57,19 +46,19 @@ export default function App({ Component, pageProps }) {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <Link className="nav-link pl-lg-0" href="/">Home </Link>
+                      <a className="nav-link pl-lg-0" href="/">Home </a>
                     </li>
                     <li className="nav-item active">
-                      <Link className="nav-link" href="about"> About <span className="sr-only">(current)</span> </Link>
+                      <a className="nav-link" href="about"> About <span className="sr-only">(current)</span> </a>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" href="categories">Categories</Link>
+                      <a className="nav-link" href="categories">Categories</a>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" href="blog"> Blog </Link>
+                      <a className="nav-link" href="blog"> Blog </a>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" href="contact">Contact Us</Link>
+                      <a className="nav-link" href="contact">Contact Us</a>
                     </li>
                   </ul>
                   <form className="search_form">
@@ -175,7 +164,6 @@ export default function App({ Component, pageProps }) {
         <Script src="sample/js/jquery-3.4.1.min.js" />
         <Script src="sample/js/bootstrap.js" />
         <Script src="sample/js/custom.js" />
-        {/* <Script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap" /> */}
     </>
   )
 }
