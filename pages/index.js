@@ -42,11 +42,11 @@ export default function Home(props) {
                   <div className="col-md-6">
                     <div className="detail-box">
                       <h5>
-                        Tude Bookstore 
+                        Tude Bookstore 1
                       </h5>
                       <h1>
                         For All Your <br />
-                        Reading Needs
+                        Reading Needs 
                       </h1>
                       <div>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
@@ -70,11 +70,11 @@ export default function Home(props) {
                   <div className="col-md-6">
                     <div className="detail-box">
                       <h5>
-                        Tude Bookstore
+                        Tude Bookstore 2
                       </h5>
                       <h1>
                         For All Your <br />
-                        Reading Needs
+                        Reading Needs 
                       </h1>
                       <div>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quam velit saepe dolorem deserunt quo quidem ad optio.
@@ -98,7 +98,7 @@ export default function Home(props) {
                   <div className="col-md-6">
                     <div className="detail-box">
                       <h5>
-                        Tude Bookstore
+                        Tude Bookstore 3
                       </h5>
                       <h1>
                         For All Your <br />
