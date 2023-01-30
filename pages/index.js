@@ -122,14 +122,14 @@ export default function Home(props) {
             </div>
           </div>
           <div className="carousel_btn_box">
-            <Link className="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
+            <a className="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
               <i className="fa fa-angle-left" aria-hidden="true"></i>
               <span className="sr-only">Previous</span>
-            </Link>
-            <Link className="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
+            </a>
+            <a className="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
               <i className="fa fa-angle-right" aria-hidden="true"></i>
               <span className="sr-only">Next</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
