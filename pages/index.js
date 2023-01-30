@@ -185,6 +185,7 @@ export default function Home(props) {
   )
 }
 
+
 // export async function getStaticProps() {
 //   const client = await MongoClient.connect(
 //     'mongodb+srv://jasper:qKPJp533UgbNQgKW@tude-pedia.qwc3589.mongodb.net/tudepediadb?retryWrites=true&w=majority'

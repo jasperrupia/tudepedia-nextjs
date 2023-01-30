@@ -7,7 +7,7 @@ import { sendContactForm } from '../lib/APIs'
 const initValue = { name: "", email: "", subject: "", message: "" }
 const initState = { values: initValue }
 
-const form = () => {
+export default function form() {
   
   const [state, setState] = useState(initState);
   const [touched, setTouched] = useState({});
@@ -116,5 +116,3 @@ const form = () => {
     </ChakraProvider>
   )
 }
-
-export default form

@@ -29,6 +29,10 @@ export default function App({ Component, pageProps }) {
           <title>TudePedia 01</title>
         </Head>
   
+        <Script src="sample/js/jquery-3.4.1.min.js" strategy="beforeInteractive"/>
+        <Script src="sample/js/bootstrap.js" />
+        <Script src="sample/js/custom.js" />
+
         <div className="hero_area">
           <header className="header_section">
             <div className="container-fluid">
@@ -160,10 +164,6 @@ export default function App({ Component, pageProps }) {
             </div>
           </div>
         </footer>
-        
-        <Script src="sample/js/jquery-3.4.1.min.js" />
-        <Script src="sample/js/bootstrap.js" />
-        <Script src="sample/js/custom.js" />
     </>
   )
 }

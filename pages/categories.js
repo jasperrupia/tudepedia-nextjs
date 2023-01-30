@@ -1,9 +1,7 @@
 import Categories from "../components/categories"
 
-const categoriesPage = () => {
+export default function categoriesPage() {
   return (
     <Categories />
   )
 }
-
-export default categoriesPage
